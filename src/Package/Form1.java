@@ -13,50 +13,55 @@ public class Form1 {
     private JButton BTNMult;
     private JButton BTNResta;
     private JButton borrarButton;
+    private JPanel panelchido;
 
-    public Form1(){
 
+    public Form1() {
 
         BTNSuma.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-               double num1 = Integer.parseInt(TFNum1.getText());
-               double num2 = Integer.parseInt(TXNum2.getText());
+                double num1 = Double.parseDouble(TFNum1.getText());
+                double num2 = Double.parseDouble(TXNum2.getText());
 
-               JOptionPane.showInputDialog(null, "La Respuesta es: "+ (num1+num2));
+                JOptionPane.showInputDialog(null, "La Respuesta es: " + (num1 + num2));
             }
         });
         BTNResta.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                double num1 = Integer.parseInt(TFNum1.getText());
-                double num2 = Integer.parseInt(TXNum2.getText());
+                double num1 = Double.parseDouble(TFNum1.getText());
+                double num2 = Double.parseDouble(TXNum2.getText());
 
-                JOptionPane.showInputDialog(null, "La Respuesta es: "+ (num1-num2));
+                JOptionPane.showInputDialog(null, "La Respuesta es: " + (num1 - num2));
 
             }
         });
         BTNMult.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                    double num1 = Integer.parseInt(TFNum1.getText());
-                    double num2 = Integer.parseInt(TXNum2.getText());
+                double num1 = Double.parseDouble(TFNum1.getText());
+                double num2 = Double.parseDouble(TXNum2.getText());
 
-                    JOptionPane.showInputDialog(null, "La Respuesta es: "+ (num1*num2));
+                JOptionPane.showInputDialog(null, "La Respuesta es: " + (num1 * num2));
 
 
-                }
+            }
         });
         BTNDiv.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                    double num1 = Integer.parseInt(TFNum1.getText());
-                    double num2 = Integer.parseInt(TXNum2.getText());
+                double num1 = Double.parseDouble(TFNum1.getText());
+                double num2 = Integer.parseInt(TXNum2.getText());
 
-                    JOptionPane.showInputDialog(null, "La Respuesta es: "+ (num1/num2));
-
-
+                if (num2 == 0) {
+                    JOptionPane.showInputDialog("ERROR");
                 }
+
+                JOptionPane.showInputDialog(null, "La Respuesta es: " + (num1 / num2));
+
+
+            }
         });
         borrarButton.addActionListener(new ActionListener() {
             @Override
@@ -69,10 +74,15 @@ public class Form1 {
 
 
     public static void main(String[] args) {
-        Form1 form = new Form1();
-
+        JFrame frame = new JFrame("PRACTICA 2 Por: Francisco Cardenas");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setSize(1000, 1000);
+        frame.setContentPane(new Form1().panelchido);
+        frame.pack();
+        frame.setVisible(true);
 
     }
 }
+
 
 
